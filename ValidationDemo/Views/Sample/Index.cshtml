@@ -1,0 +1,68 @@
+﻿@model ValidationDemo.Models.StudentModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<h4>StudentModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(false)
+
+            <form asp-action="Index">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="studentId" class="control-label"></label>
+                    <input asp-for="studentId" class="form-control" />
+                    <span asp-validation-for="studentId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="stdName" class="control-label"></label>
+                    <input asp-for="stdName" class="form-control" />
+                    <span asp-validation-for="stdName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="stdFees" class="control-label"></label>
+                    <input asp-for="stdFees" class="form-control" />
+                    <span asp-validation-for="stdFees" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="stdMail" class="control-label"></label>
+                    <input asp-for="stdMail" class="form-control" />
+                    <span asp-validation-for="stdMail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="password" class="control-label"></label>
+                    <input asp-for="password" class="form-control" />
+                    <span asp-validation-for="password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="confPass" class="control-label"></label>
+                    <input asp-for="confPass" class="form-control" />
+                    <span asp-validation-for="confPass" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="age" class="control-label"></label>
+                    <input asp-for="age" class="form-control" />
+                    <span asp-validation-for="age" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </form>
+        }
+    </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }
